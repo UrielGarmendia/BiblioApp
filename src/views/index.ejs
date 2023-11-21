@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include ('partials/header') %>
+    <title>Libros</title>
+  </head>
+  <body>
+
+    <%- include ('partials/nav') %>
+
+    <div class="container p-4">
+      <div class="row">
+        <% books.forEach(book => { %>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-header">
+                <h2><%= book.title %></h2>
+                <h5><%= book.author %></h5>
+            </div>
+            <img src="<%= book.image %>" alt="">
+            <div class="card-body">
+              <p><%= book.description %></p>
+            </div>
+            <div class="card-footer">
+                <a href='/delete/<%= book.id %>' class="btn btn-danger">Delete</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>
